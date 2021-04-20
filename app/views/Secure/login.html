@@ -1,0 +1,71 @@
+#{extends 'Secure/layout.html' /}
+
+<div class="user-form">
+	
+	<h1>&{'secure.title'}</h1>
+		
+	#{form @authenticate()}
+		
+		#{if flash.error}
+			<p class="error">
+				&{flash.error}
+			</p>
+		#{/if}
+		#{if flash.success}
+			<p class="success">
+				&{flash.success}
+			</p>
+		#{/if}
+                
+                <p class="form-title">
+                    Singin Form
+                </p>
+		<p id="username-field">
+			<label for="username">&{'secure.email'}</label>
+			<input type="text" name="username" id="username" value="${flash.username}" />
+		</p>
+		<p id="password-field">
+			<label for="password">&{'secure.password'}</label>
+			<input type="password" name="password" id="password" value="" />
+		</p>
+		<p id="signin-field">
+			<input type="submit" id="signin" value="&{'secure.signin'}" />
+		</p>
+
+	#{/form}
+</div>
+
+<div class="user-form">
+	
+	<h1>&{'secure.title'}</h1>
+		
+	#{form @Security.signup()}
+		
+		#{if flash.signupError}
+			<p class="error">
+                                &{flash.signupError}
+			</p>
+		#{/if}
+		#{if flash.signupSuccess}
+			<p class="success">
+				&{flash.signupSuccess}
+			</p>
+		#{/if}
+                
+                <p class="form-title">
+                    Signup Form
+                </p>
+		<p id="username-field">
+			<label for="email">&{'secure.email'}</label>
+			<input type="text" name="email" id="email" value="${flash.email}" />
+		</p>
+		<p id="password-field">
+			<label for="password">&{'secure.password'}</label>
+			<input type="password" name="password" id="password" value="${flash.password}" />
+		</p>
+		<p id="signin-field">
+                        <input type="submit" id="signup" value="&{'secure.signup'}" />
+		</p>
+
+	#{/form}
+</div>

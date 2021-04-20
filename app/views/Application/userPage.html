@@ -1,0 +1,72 @@
+#{extends 'Secure/layout.html' /}
+#{set title:'User Page' /}
+
+<a href="logout">
+     <div class="my-button">Logout</div>
+</a>
+
+<div class="user-form">
+		
+	#{form @Birthdays.addBirthday()}
+
+		#{if flash.birthdaySuccess}
+			<p class="success">
+				&{flash.birthdaySuccess}
+			</p>
+		#{/if}
+                
+                <p class="form-title">
+                    Add Birthdays!
+                </p>
+		<p id="username-field">
+			<label for="fullname">Full Name:</label>
+			<input type="text" name="fullname" id="email" value="${flash.fullname}" />
+		</p>
+		<p id="password-field">
+			<label for="birthday">Birthday:</label>
+			<input type="date" name="birthday" id="birthday" value="${flash.birthday}" />
+		</p>
+		<p id="signin-field">
+                        <input type="submit" id="signup" value="Add Birthday" />
+		</p>
+
+	#{/form}
+</div>
+
+<div class="user-form">
+		
+	#{form @Birthdays.changeBirthday()}
+
+		#{if flash.alertSuccess}
+			<p class="success">
+				&{flash.alertSuccess}
+			</p>
+		#{/if}
+                
+                <p class="form-title">
+                    Modify Alert Time!
+                </p>
+                <p>
+                    Your current alert time is: ${user.alertTime} hour(s)!
+                </p>
+		<p id="alert-field">
+			<label for="alert">Alert Time:</label>
+			<input type="number" name="alert" id="alert" value="${flash.alert}" />
+		</p>
+		<p id="signin-field">
+                        <input type="submit" id="signup" value="Change" />
+		</p>
+
+	#{/form}
+</div>
+
+<div>
+    <p>
+        Current birthday alerts:
+    </p>
+    #{list items:birthdays, as:'birthday'}
+    <div>
+        ${birthday.fullname} ${birthday.birthday}
+    </div>
+    #{/list}
+</div>
