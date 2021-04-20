@@ -5,3 +5,6 @@ I used Java 7, Netbeans IDE 12.3 and Play 1.2.4 for this assesment.
 Setup:
 1- Run "play run scaleGridOA" in command line. (Assuming play framework is already in path)
 2- Go to a browser and type "http://localhost:9000" and enter.
+
+![](/ss1.png)
+![](/ss2.png)
